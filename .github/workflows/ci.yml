@@ -1,7 +1,13 @@
 name: nf-core CI
 # This workflow is triggered on pushes and PRs to the repository.
 # It runs the pipeline with the minimal test dataset to check that it completes without any syntax errors
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+  release:
+    types: [published]
 
 jobs:
   test:
@@ -19,12 +25,13 @@ jobs:
         run: |
           wget -qO- get.nextflow.io | bash
           sudo mv nextflow /usr/local/bin/
+      - name: Build new docker image
+        if: env.GIT_DIFF
+        run: docker build --no-cache . -t lifebitai/gwasgsa:dev
       - name: Pull docker image
         run: |
-          docker pull nfcore/gwasgsa:dev
-          docker tag nfcore/gwasgsa:dev nfcore/gwasgsa:dev
+          docker pull lifebitai/gwasgsa:dev
+          docker tag lifebitai/gwasgsa:dev lifebitai/gwasgsa:dev
       - name: Run pipeline with test data
         run: |
-          # TODO nf-core: You can customise CI pipeline run tests as required
-          # (eg. adding multiple test runs with different parameters)
-          nextflow run ${GITHUB_WORKSPACE} -profile test,docker
+          nextflow run main.nf -profile test_with_vcf,docker

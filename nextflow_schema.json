@@ -1,0 +1,238 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://raw.githubusercontent.com/lifebit-ai/gwasgsa/master/nextflow_schema.json",
+    "title": "gwasgs",
+    "description": "Gene-Set-Analysis for GWAS",
+    "properties": {
+        "input": {
+            "type": "string",
+            "default": "null"
+        },
+        "outdir": {
+            "type": "string",
+            "default": "./results"
+        },
+        "gene_loc_file": {
+            "type": "string",
+            "default": "null"
+        },
+        "set_anot_file": {
+            "type": "string",
+            "default": "null"
+        },
+        "vcf_file": {
+            "type": "string"
+        },
+        "plink_bed": {
+            "type": "string",
+            "default": "null"
+        },
+        "plink_bim": {
+            "type": "string",
+            "default": "null"
+        },
+        "plink_fam": {
+            "type": "string",
+            "default": "null"
+        },
+        "summary_stats": {
+            "type": "string",
+            "default": "null"
+        },
+        "snp_col_name": {
+            "type": "string",
+            "default": "null"
+        },
+        "pval_col_name": {
+            "type": "string",
+            "default": "null"
+        },
+        "sample_size": {
+            "type": "string",
+            "default": "null"
+        },
+        "ref_panel_bed": {
+            "type": "string",
+            "default": "null"
+        },
+        "ref_panel_bim": {
+            "type": "string",
+            "default": "null"
+        },
+        "ref_panel_fam": {
+            "type": "string",
+            "default": "null"
+        },
+        "ref_panel_synonyms": {
+            "type": "string",
+            "default": "null"
+        },
+        "window": {
+            "type": "string",
+            "default": "0,0"
+        },
+        "snp_subset": {
+            "type": "string",
+            "default": "null"
+        },
+        "gene_model": {
+            "type": "string",
+            "default": "snp-wise=mean"
+        },
+        "snp_min_maf": {
+            "type": "integer",
+            "default": 0
+        },
+        "snp_min_mac": {
+            "type": "integer",
+            "default": 0
+        },
+        "snp_max_maf": {
+            "type": "string",
+            "default": "null"
+        },
+        "snp_max_mac": {
+            "type": "string",
+            "default": "null"
+        },
+        "snp_max_miss": {
+            "type": "number",
+            "default": 0.05
+        },
+        "snp_diff": {
+            "type": "number",
+            "default": 1e-06
+        },
+        "seed": {
+            "type": "string",
+            "default": "null"
+        },
+        "burden": {
+            "type": "string",
+            "default": "null"
+        },
+        "big_data": {
+            "type": "string",
+            "default": "null"
+        },
+        "gene_info": {
+            "type": "string"
+        },
+        "outlier_up": {
+            "type": "integer",
+            "default": 3
+        },
+        "outlier_down": {
+            "type": "integer",
+            "default": 6
+        },
+        "direction_sets": {
+            "type": "string",
+            "default": "positive"
+        },
+        "self_contained": {
+            "type": "string"
+        },
+        "alpha": {
+            "type": "string"
+        },
+        "correct": {
+            "type": "string",
+            "default": "all"
+        },
+        "cov_file": {
+            "type": "string",
+            "default": "null"
+        },
+        "pvalue_cutoff": {
+            "type": "number",
+            "default": 0.05
+        },
+        "top_n_value": {
+            "type": "integer",
+            "default": 10
+        },
+        "name": {
+            "type": "string"
+        },
+        "multiqc_config": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        },
+        "email_on_fail": {
+            "type": "string"
+        },
+        "max_multiqc_email_size": {
+            "type": "string",
+            "default": "25 MB"
+        },
+        "plaintext_email": {
+            "type": "string"
+        },
+        "monochrome_logs": {
+            "type": "string"
+        },
+        "help": {
+            "type": "string"
+        },
+        "igenomes_base": {
+            "type": "string",
+            "default": "s3://ngi-igenomes/igenomes/"
+        },
+        "tracedir": {
+            "type": "string",
+            "default": "./results/pipeline_info"
+        },
+        "igenomes_ignore": {
+            "type": "string"
+        },
+        "custom_config_version": {
+            "type": "string",
+            "default": "master"
+        },
+        "custom_config_base": {
+            "type": "string",
+            "default": "https://raw.githubusercontent.com/nf-core/configs/master"
+        },
+        "hostnames": {
+            "type": "string",
+            "default": "[binac:['.binac.uni-tuebingen.de'], cbe:['.cbe.vbc.ac.at'], cfc:['.hpc.uni-tuebingen.de'], crick:['.thecrick.org'], icr_davros:['.davros.compute.estate'], genotoul:['.genologin1.toulouse.inra.fr', '.genologin2.toulouse.inra.fr'], genouest:['.genouest.org'], uppmax:['.uppmax.uu.se'], utd_ganymede:['ganymede.utdallas.edu']]"
+        },
+        "config_profile_description": {
+            "type": "string"
+        },
+        "config_profile_contact": {
+            "type": "string"
+        },
+        "config_profile_url": {
+            "type": "string"
+        },
+        "max_memory": {
+            "type": "string",
+            "default": "2 GB"
+        },
+        "max_cpus": {
+            "type": "integer",
+            "default": 2
+        },
+        "max_time": {
+            "type": "string",
+            "default": "20h"
+        },
+        "fasta": {
+            "type": "string"
+        }
+    },
+    "definitions": {
+        "my_first_group": {
+            "properties": {}
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/definitions/my_first_group"
+        }
+    ]
+}
