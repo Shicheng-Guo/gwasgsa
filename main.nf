@@ -603,12 +603,13 @@ process multiqc {
     file (report_plot) from ch_report_plot
     
     output:
-    file "report.html" into ch_multiqc_report
+    file "multiqc_report.html" into ch_multiqc_report
 
     script:
     """
     cp /opt/bin/* .
     Rscript -e "rmarkdown::render('report.Rmd', params = list(gsa_plot='$report_plot',gsa_result='$report_table'))"
+    mv report.html multiqc_report.html
     """
 }
 
