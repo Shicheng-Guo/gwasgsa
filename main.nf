@@ -580,7 +580,7 @@ process get_genenames {
     file(geneloc) from ch_gene_loc_file_2
 
     output:
-    file("magma_out.gsa.out.sorted.genenames.tsv") to ch_report_table
+    file("magma_out.gsa.out.sorted.genenames.tsv") into ch_report_table
     file('*top*.tsv')
 
     script:
@@ -599,21 +599,16 @@ process multiqc {
     publishDir "${params.outdir}/MultiQC", mode: 'copy'
 
     input:
-    file (multiqc_config) from ch_multiqc_config
+    file (report_table) from ch_report_table
+    file (report_plot) from ch_report_plot
     
-
     output:
-    file "*multiqc_report.html" into ch_multiqc_report
-    file "*_data"
-    file "multiqc_plots"
+    file "report.html" into ch_multiqc_report
 
     script:
-    rtitle = custom_runName ? "--title \"$custom_runName\"" : ''
-    rfilename = custom_runName ? "--filename " + custom_runName.replaceAll('\\W','_').replaceAll('_+','_') + "_multiqc_report" : ''
-    custom_config_file = params.multiqc_config ? "--config $mqc_custom_config" : ''
-    // TODO nf-core: Specify which MultiQC modules to use with -m for a faster run time
     """
-    multiqc -f $rtitle $rfilename $custom_config_file .
+    cp /opt/bin/* .
+    Rscript -e "rmarkdown::render('report.Rmd', params = list(gsa_plot='$report_plot',gsa_result='$report_table'))"
     """
 }
 

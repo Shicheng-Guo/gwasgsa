@@ -40,7 +40,11 @@ library(kableExtra)
 
 # About
 
-This report is generated from [GWAS-GSA pipeline](https://github.com/lifebit-ai/gwasgsa/) which uses [MAGMA tool](https://ctg.cncr.nl/software/magma) to do gene-set analysis on GWAS data.
+This report is generated from [GWAS-GSA pipeline](https://github.com/lifebit-ai/gwasgsa/) (Gene-Set Analysis on Genome Wide Association Studies) which uses [MAGMA tool](https://ctg.cncr.nl/software/magma).
+
+The input are GWAS results, such as   
+- Summary statistics file  
+- PLINK files  
 
 # Visualisations
 
