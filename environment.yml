@@ -14,6 +14,6 @@ dependencies:
   # specific to this pipeline
   - conda-forge::r-tidyverse=1.3.0
   - fonts-anaconda=1
-  - r-dt
-  - r-kableextra
+  - r-dt=0.16
+  - r-kableextra=1.3.1
   
