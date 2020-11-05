@@ -29,7 +29,7 @@ plot <- ggplot(top_n) +
   labs(title="Gene-Set Analysis",
       x="Number of Genes", y="Gene-Set Names") +
   labs(color="P-value", size="Number of Genes" ) +
-  scale_color_gradient(low="#4e4b4c", high="#4dc5ce") + 
+  scale_color_gradient(low="#4dc5ce", high="#ED594E") + 
   theme_bw()
   
 #plot
@@ -46,4 +46,3 @@ gsa_sort <- gsa %>% dplyr::arrange(P)
 #gsa_sort <- gsa_sort %>% tibble::rownames_to_column("VARIABLE")
 csv_file_name <- paste0(basename(gsa_file), ".sorted.csv")
 write.table(gsa_sort, file=csv_file_name, quote = F, sep = ",", row.names = F)
-
