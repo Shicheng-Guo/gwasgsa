@@ -70,15 +70,3 @@ table   <- read.table(params$gsa_result, header = T, sep = "\t")
 DTable(table)
 ```
 
-**Table headers description**  
-
-- **VARIABLE :** - Name of the GeneSet, Names in this column are capped at 30 (by default) characters to keep the output file more readable.  
-- **TYPE :** Denotes the type of variable, either SET or COVAR for normal gene sets and gene covariates provided in the input files; or INTER-SS or INTER-SC, for internally created interaction terms (set by set and set by covariate, respectively)  
-- **NGENES :** The number of genes in the data that are in the set (for gene sets and set by covariate interactions), that are in the interaction set (for set by set interactions), or for which nonmissing values were available (for gene covariates)  
-- **BETA :** The regression coefficient of the variable  
-- **BETA_STD :** The semi-standardized regression coefficient, corresponding to the predicted change in Z-value given a change of one standard deviation in the predictor gene set / gene covariate (ie. BETA divided by the variable’s standard deviation)  
-- **SE :** The standard error of the regression coefficient  
-- **P :** The p-value for the parameter / variable  
-- **FULL_NAME :** The full variable name; only included if the variable names exceed the maximum length for the VARIABLE column (and the abbreviate option is not set to file mode)  
-- **GENE_NAMES :** All the gene names belongs to corresponding **VARIABLE**/GeneSet  
-
