@@ -25,17 +25,17 @@ gsa_filt_sort <- gsa_filt %>% dplyr::arrange(P)
 top_n <- head(gsa_filt_sort, top_n_value)
 
 plot <- ggplot(top_n) +
-   geom_point(aes(x = NGENES, y = VARIABLE, color = P, size = NGENES)) +
-   labs(title="Gene-Set Analysis",
-        x="Number of Genes", y="Gene-Set Names") +
+  geom_point(aes(x = NGENES, y = VARIABLE, color = P, size = NGENES)) +
+  labs(title="Gene-Set Analysis",
+      x="Number of Genes", y="Gene-Set Names") +
   labs(color="P-value", size="Number of Genes" ) +
-  scale_color_gradient(low="blue", high="red") + 
+  scale_color_gradient(low="#4dc5ce", high="#ED594E") + 
   theme_bw()
   
 #plot
 
 out_png <- paste0(basename(gsa_file), ".top_", top_n_value, ".plot.png")
-ggsave(out_png, plot, width = 7, height = 5)
+ggsave(out_png, plot, width = 9, height = 5)
 
 # export results for which plot is made
 top_n_file_name <- paste0(basename(gsa_file), ".top_", top_n_value, ".plot.csv")
@@ -46,4 +46,3 @@ gsa_sort <- gsa %>% dplyr::arrange(P)
 #gsa_sort <- gsa_sort %>% tibble::rownames_to_column("VARIABLE")
 csv_file_name <- paste0(basename(gsa_file), ".sorted.csv")
 write.table(gsa_sort, file=csv_file_name, quote = F, sep = ",", row.names = F)
-
