@@ -12,12 +12,12 @@ output:
 params:
   gsa_plot:  "gsa.png"
   gsa_result: "gsa.tsv"
-title: "`r paste0('Genomics England GWAS-GSA Report' , '') `"
+title: "`r paste0('GWAS-GSA Report' , '') `"
 author: ""
 date: ""
 ---
 
-<img src="gel_logo.png" width=100 style="position:absolute;top:4px;bottom:4px;right:4px;" />
+<img src="logo.png" width=100 style="position:absolute;top:4px;bottom:4px;right:4px;" />
 
 
 ```{r include = FALSE}
