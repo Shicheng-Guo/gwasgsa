@@ -1,4 +1,3 @@
-# ![lifebit-ai/gwasgsa](docs/images/nf-core-gwasgsa_logo.png)
 
 **Gene-Set-Analysis for GWAS**.
 
